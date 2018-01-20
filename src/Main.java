@@ -27,5 +27,13 @@ public class Main {
 
         System.out.println("Suma kontrolna dla pliku " + plik + " wynosi: " + checksum);
 
+/*
+        //Wlaczenie serwera
+        Serwer fs = new Serwer(11000);
+        fs.start();
+
+        //Wlaczenie Klienta
+        Klient fc = new Klient("localhost", 11000, "pliktestowy.txt");*/
+
     }
 }
