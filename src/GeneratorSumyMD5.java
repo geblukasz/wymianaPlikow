@@ -17,7 +17,6 @@ public class GeneratorSumyMD5 {
             e.printStackTrace();
         }
 
-        //Create byte array to read data in chunks
         byte[] tablicaBajtow = new byte[1024];
         int licznikBajtow = 0;
 

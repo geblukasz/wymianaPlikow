@@ -3,11 +3,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class Klient {
+public class Klient1 {
 
     private Socket s;
 
-    public Klient(String host, int port, String plik) {
+    public Klient1(String host, int port, String plik) {
         try {
             s = new Socket(host, port);
             wyslijPlikNaSerwer(plik);
@@ -17,20 +17,20 @@ public class Klient {
     }
 
     public void wyslijPlikNaSerwer(String plik) throws IOException {
-        DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-        FileInputStream fis = new FileInputStream(plik);
+        DataOutputStream dataOutputStream = new DataOutputStream(s.getOutputStream());
+        FileInputStream fileInputStream = new FileInputStream(plik);
         byte[] buffer = new byte[4096];
 
-        while (fis.read(buffer) > 0) {
-            dos.write(buffer);
+        while (fileInputStream.read(buffer) > 0) {
+            dataOutputStream.write(buffer);
         }
 
-        fis.close();
-        dos.close();
+        fileInputStream.close();
+        dataOutputStream.close();
     }
 
     public static void main(String[] args) {
-        Klient fc = new Klient("localhost", 1988, "pliktestowy.txt");
+        Klient1 klient1 = new Klient1("localhost", 11000, "pliktestowy.txt");
     }
 
 }

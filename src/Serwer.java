@@ -7,6 +7,15 @@ import java.net.Socket;
 public class Serwer extends Thread {
 
     private ServerSocket ss;
+    private int port = 1988;
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
 
     public Serwer(int port) {
         try {
@@ -33,7 +42,7 @@ public class Serwer extends Thread {
         FileOutputStream streamZapisujacyPlikOdKlienta = new FileOutputStream("PrzykladowyPlikDoTestow.txt");
         byte[] buffer = new byte[4096];
 
-        int rozmiarPliku = 15123; // Send file size in separate msg
+        int rozmiarPliku = 15123;
         int licznikPrzeczytanychBajtow = 0;
         int koncowaLiczbaPrzeczytanychBajtow = 0;
         int liczbaBajtowPozostalhcDoPrzeczytania = rozmiarPliku;
@@ -50,7 +59,7 @@ public class Serwer extends Thread {
     }
 
     public static void main(String[] args) {
-        Serwer fs = new Serwer(1988);
+        Serwer fs = new Serwer(11000);
         fs.start();
     }
 
